@@ -1,6 +1,31 @@
 <script setup>
 import Headercomponent from '../components/Headercomponent.vue';
-import FooterComponent from '../components/FooterComponent.vue';   
+import FooterComponent from '../components/FooterComponent.vue'; 
+import { ref } from 'vue';  
+
+const social = ref([
+    {
+        id: 1,
+        title: "Instagram",
+        icon: "fa-brands fa-instagram",
+    },
+    {
+    id: 2,
+        title: "Behance",
+        icon: "fa-brands fa-behance",
+    },
+    {
+    id: 3,
+        title: "Dribble",
+        icon: "fa-brands fa-dribbble",
+    },
+    {
+    id: 4,
+        title: "LinkedIn",
+        icon: "fa-brands fa-linkedin-in",
+    },
+    
+])
 </script>
 
 <template>
@@ -17,16 +42,8 @@ import FooterComponent from '../components/FooterComponent.vue';
 
         <section class="connect">
             <ul class="white-itens">
-                <li>
-                    <a href="#"><span class="fa-brands fa-instagram"></span>Instagram</a>
-
-                </li>
-                <li>
-                    <a href="#"><span class="fa-brands fa-behance"></span> Behance</a>    
-                </li>
-                <li><a href="#"><span class="fa-brands fa-dribbble"></span>Dribble</a>
-                </li>
-                <li><a href="#"><span class="fa-brands fa-linkedin-in"></span>LinkedIn</a>
+                <li v-for="connect in social">
+                    <a href="#"><span :class="'fa-brands fa-instagram' + connect.icon"></span>{{connect.title}}</a>
                 </li>
             </ul>
         </section>
